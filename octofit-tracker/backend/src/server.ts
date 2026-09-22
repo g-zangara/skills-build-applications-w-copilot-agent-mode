@@ -13,6 +13,7 @@ const apiBaseUrl = codespaceName
 
 app.use(express.json())
 
+// CORS middleware to handle cross-origin requests
 app.use((request, response, next) => {
   const origin = request.headers.origin
   const isAllowedOrigin = origin && (
