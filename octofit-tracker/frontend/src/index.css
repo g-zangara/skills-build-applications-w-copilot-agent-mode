@@ -2,8 +2,22 @@
 
 :root {
   font-family: 'Space Grotesk', sans-serif;
-  color: #14201d;
-  background: #f4f5ee;
+  --paper: #f4f5ee;
+  --ink: #14201d;
+  --line: #d8ddd2;
+  --muted: #64706a;
+  --coral: #f2b4a8;
+  --lime: #dfee8b;
+  --blue: #c6dcf6;
+  --accent: #53710c;
+  --accent-bg: #eff9c8;
+  --accent-border: #c7df57;
+  --border: #d8ddd2;
+  --text-h: #14201d;
+  --social-bg: #fff;
+  --shadow: 0 2px 8px #1b2a1810;
+  color: var(--ink);
+  background: var(--paper);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

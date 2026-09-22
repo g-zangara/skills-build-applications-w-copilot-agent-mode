@@ -1,16 +1,15 @@
 import { ResourceView } from './ResourceView.jsx'
 
-function Users() {
-  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
-  const endpoint = codespaceName
-    ? `https://${codespaceName}-8000.app.github.dev/api/users/`
-    : 'http://localhost:8000/api/users/'
+const usersEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+  : 'http://localhost:8000/api/users/'
 
+function Users() {
   return (
     <ResourceView
       description="The people powering the OctoFit rhythm."
-      endpoint={endpoint}
       eyebrow="PEOPLE / DIRECTORY"
+      endpoint={usersEndpoint}
       resource="users"
       title="Members"
     >

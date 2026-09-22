@@ -1,7 +1,7 @@
 import { useCollection } from '../hooks/useCollection.js'
 
 export function ResourceView({ eyebrow, title, description, resource, endpoint, children }) {
-  const { items, state } = useCollection(endpoint ?? resource)
+  const { items, state } = useCollection(endpoint)
 
   return (
     <section className="resource-page">

@@ -1,17 +1,16 @@
 import { displayName } from '../lib/api.js'
 import { ResourceView } from './ResourceView.jsx'
 
-function Leaderboard() {
-  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
-  const endpoint = codespaceName
-    ? `https://${codespaceName}-8000.app.github.dev/api/leaderboard/`
-    : 'http://localhost:8000/api/leaderboard/'
+const leaderboardEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+  : 'http://localhost:8000/api/leaderboard/'
 
+function Leaderboard() {
   return (
     <ResourceView
       description="Celebrate the effort that keeps the whole crew moving."
-      endpoint={endpoint}
       eyebrow="RANKINGS / MOMENTUM"
+      endpoint={leaderboardEndpoint}
       resource="leaderboard"
       title="Leaderboard"
     >

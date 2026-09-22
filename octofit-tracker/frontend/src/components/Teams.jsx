@@ -1,17 +1,16 @@
 import { displayName } from '../lib/api.js'
 import { ResourceView } from './ResourceView.jsx'
 
-function Teams() {
-  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
-  const endpoint = codespaceName
-    ? `https://${codespaceName}-8000.app.github.dev/api/teams/`
-    : 'http://localhost:8000/api/teams/'
+const teamsEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/teams/`
+  : 'http://localhost:8000/api/teams/'
 
+function Teams() {
   return (
     <ResourceView
       description="Small groups make consistency more visible."
-      endpoint={endpoint}
       eyebrow="COMMUNITY / GROUPS"
+      endpoint={teamsEndpoint}
       resource="teams"
       title="Teams"
     >

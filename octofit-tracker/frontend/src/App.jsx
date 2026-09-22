@@ -4,6 +4,7 @@ import Leaderboard from './components/Leaderboard.jsx'
 import Teams from './components/Teams.jsx'
 import Users from './components/Users.jsx'
 import Workouts from './components/Workouts.jsx'
+import octofitLogo from '../../../docs/octofitapp-small.png'
 import './App.css'
 
 const navigation = [
@@ -45,7 +46,7 @@ function App() {
     <div className="app-shell">
       <aside className="sidebar">
         <NavLink className="brand" to="/">
-          <span className="brand-mark">O</span>
+          <img alt="OctoFit logo" className="brand-mark" src={octofitLogo} />
           <span>OCTOFIT</span>
         </NavLink>
         <p className="sidebar-label">Workspace</p>
@@ -59,7 +60,6 @@ function App() {
             </NavLink>
           ))}
         </nav>
-        <div className="sidebar-footer"><span className="status-dot" /> API connected</div>
       </aside>
       <main className="main-content">
         <header className="topbar">
