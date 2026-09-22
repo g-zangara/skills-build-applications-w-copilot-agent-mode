@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { type NextFunction, type Request, type Response } from 'express'
 import { connectDatabase } from './config/database.js'
 import { Activity, Leaderboard, Team, User, Workout } from './models/index.js'
 import { createResourceRouter } from './routes/resourceRouter.js'
@@ -14,7 +14,7 @@ const apiBaseUrl = codespaceName
 app.use(express.json())
 
 // CORS middleware to handle cross-origin requests
-app.use((request, response, next) => {
+app.use((request: Request, response: Response, next: NextFunction) => {
   const origin = request.headers.origin
   const isAllowedOrigin = origin && (
     origin === 'http://localhost:5173' ||
@@ -25,7 +25,7 @@ app.use((request, response, next) => {
   if (isAllowedOrigin) response.setHeader('Access-Control-Allow-Origin', origin)
   response.setHeader('Vary', 'Origin')
   response.setHeader('Access-Control-Allow-Headers', 'Content-Type')
-  response.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+  response.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
 
   if (request.method === 'OPTIONS') {
     response.sendStatus(204)
@@ -35,7 +35,7 @@ app.use((request, response, next) => {
   next()
 })
 
-app.get('/api/health', (_request, response) => {
+app.get('/api/health', (_request: Request, response: Response) => {
   response.json({
     status: 'ok',
     service: 'octofit-tracker-backend',

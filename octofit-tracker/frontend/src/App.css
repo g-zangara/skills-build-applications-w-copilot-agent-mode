@@ -1,7 +1,7 @@
 .app-shell { min-height: 100vh; display: flex; background: var(--paper); }
 .sidebar { width: 248px; flex: 0 0 248px; display: flex; flex-direction: column; padding: 30px 20px 22px; border-right: 1px solid var(--line); background: #ebeee5; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .08em; font-size: 15px; }
-.brand-mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--paper); background: var(--ink); font-size: 18px; }
+.brand-mark { display: block; width: 32px; height: 32px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .sidebar-label, .eyebrow, .panel-kicker, .topbar-caption { margin: 0; color: var(--muted); font: 500 11px 'DM Mono', monospace; letter-spacing: .09em; }
 .sidebar-label { margin: 64px 12px 14px; text-transform: uppercase; }
 .main-nav { display: grid; gap: 5px; }
