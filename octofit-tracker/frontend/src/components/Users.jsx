@@ -1,10 +1,15 @@
 import { ResourceView } from './ResourceView.jsx'
 
+const usersEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+  : 'http://localhost:8000/api/users/'
+
 function Users() {
   return (
     <ResourceView
       description="The people powering the OctoFit rhythm."
       eyebrow="PEOPLE / DIRECTORY"
+      endpoint={usersEndpoint}
       resource="users"
       title="Members"
     >

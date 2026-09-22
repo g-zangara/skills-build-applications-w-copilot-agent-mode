@@ -1,10 +1,15 @@
 import { ResourceView } from './ResourceView.jsx'
 
+const workoutsEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`
+  : 'http://localhost:8000/api/workouts/'
+
 function Workouts() {
   return (
     <ResourceView
       description="Focused sessions matched to your current energy."
       eyebrow="LIBRARY / TRAINING"
+      endpoint={workoutsEndpoint}
       resource="workouts"
       title="Workouts"
     >

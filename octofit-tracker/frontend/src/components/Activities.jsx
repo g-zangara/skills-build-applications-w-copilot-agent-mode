@@ -1,11 +1,16 @@
 import { displayName } from '../lib/api.js'
 import { ResourceView } from './ResourceView.jsx'
 
+const activitiesEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+  : 'http://localhost:8000/api/activities/'
+
 function Activities() {
   return (
     <ResourceView
       description="A living log of movement, effort, and momentum."
       eyebrow="TRACKING / MOVEMENT"
+      endpoint={activitiesEndpoint}
       resource="activities"
       title="Activities"
     >

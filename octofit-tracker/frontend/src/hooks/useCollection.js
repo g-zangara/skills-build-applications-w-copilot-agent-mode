@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { fetchCollection } from '../lib/api.js'
 
-export function useCollection(resource) {
+export function useCollection(endpoint) {
   const [items, setItems] = useState([])
   const [state, setState] = useState('loading')
 
   useEffect(() => {
     let active = true
-    fetchCollection(resource)
+    fetchCollection(endpoint)
       .then((data) => {
         if (active) {
           setItems(data)
@@ -16,7 +16,7 @@ export function useCollection(resource) {
       })
       .catch(() => active && setState('error'))
     return () => { active = false }
-  }, [resource])
+  }, [endpoint])
 
   return { items, state }
 }
