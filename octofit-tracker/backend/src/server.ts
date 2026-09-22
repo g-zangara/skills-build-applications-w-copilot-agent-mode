@@ -3,6 +3,7 @@ import { connectDatabase } from './config/database.js'
 import { Activity, Leaderboard, Team, User, Workout } from './models/index.js'
 import { createResourceRouter } from './routes/resourceRouter.js'
 
+//import and configure express application
 const app = express()
 const port = Number(process.env.PORT ?? 8000)
 const codespaceName = process.env.CODESPACE_NAME
