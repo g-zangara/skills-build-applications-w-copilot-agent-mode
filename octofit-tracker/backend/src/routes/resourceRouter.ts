@@ -55,16 +55,15 @@ export function createResourceRouter(resource: string, model: OctofitModel) {
 
   router.put('/:id', async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const record = await model.findByIdAndUpdate(request.params.id, request.body, {
-        new: true,
-        runValidators: true,
-      }).lean()
+      const record = await model.findById(request.params.id)
 
       if (!record) {
         response.status(404).json({ error: 'Record not found' })
         return
       }
 
+      record.set(request.body)
+      await record.save()
       response.json(record)
     } catch (error) {
       handleResourceError(error, response, next)
