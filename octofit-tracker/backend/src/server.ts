@@ -21,6 +21,7 @@ app.get('/api/health', (_request, response) => {
   })
 })
 
+// Register resource routes
 app.use('/api/users/', createResourceRouter('users', User))
 app.use('/api/teams/', createResourceRouter('teams', Team))
 app.use('/api/activities/', createResourceRouter('activities', Activity))
